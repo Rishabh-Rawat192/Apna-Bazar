@@ -1,3 +1,58 @@
-body{
-    background-color: blue;
+body {
+    background: #eee5e9;
+}
+.container {
+    background: #eee5e9;
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.image-resize {
+    height: 40vh;
+    width: 100%;
+    max-width: 80vw;
+    object-fit: cover;
+    object-position: center;
+}
+.grid > article {
+    background: #eee5e9;
+    border: none;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+}
+.grid > article:hover {
+    transform: translateY(5px);
+    box-shadow: 2px 2px 26px 0px rgba(0, 0, 0, 0.3);
+}
+.grid > article img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.text {
+    padding: 0 20px 20px;
+}
+.text h3 {
+    text-transform: uppercase;
+}
+
+.button-more {
+    background: #060b23;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 5px;
 }

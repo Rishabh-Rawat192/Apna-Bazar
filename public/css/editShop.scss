@@ -1,0 +1,87 @@
+main {
+    font-family: "Convergence", sans-serif;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #060b23;
+}
+.container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4rem auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+input[type="submit"] {
+    background: #18ffff;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    padding: 8px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
+$radius: 0.5rem;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.form1 {
+    position: relative;
+    width: 20rem;
+    height: 3rem;
+    margin: 4px;
+
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #e1e5ee;
+        border-radius: $radius;
+        font-family: inherit;
+        font-size: inherit;
+        color: white;
+        outline: none;
+        padding: 1.25rem;
+        background: none;
+
+        &:hover {
+            border-color: #adffff;
+        }
+        &:focus {
+            border-color: #18ffff;
+        }
+    }
+    &__label {
+        position: absolute;
+        left: 1rem;
+        top: 0.8rem;
+        padding: 0 0.5rem;
+        color: white;
+        cursor: text;
+        transition: top 200ms ease-in, left 200ms ease-in,
+            font-size 200ms ease-in;
+        background-color: #060b23;
+    }
+}
+.form1__input:focus ~ .form1__label,
+.form1__input:not(:placeholder-shown).form1__input:not(:focus) ~ .form1__label {
+    top: -0.5rem;
+    font-size: 0.8rem;
+    left: 0.8rem;
+}

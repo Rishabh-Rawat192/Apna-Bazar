@@ -19,13 +19,20 @@ html
                     ul
                         if user
                             if user.role==='seller'
+                                li 
+                                    a(href='/myshop') My Shop
                                 li
                                     a(href='/products/new') add product
+                            else        
+                                li 
+                                    a(href='/shops') Near By Shop        
                             li
                                 a(href='/orders') orders
                             li
                                 a#logoutOption(href='#') logout
                         else
+                            li 
+                                a(href='/shops') Near By Shop
                             li
                                 a(href='/login') login 
                             li

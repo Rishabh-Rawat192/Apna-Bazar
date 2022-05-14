@@ -8,10 +8,13 @@ block content
     .container
         each product in products
             form.item(action=`/${product._id}` method='GET')
-                img(src=`${product.image}`, alt='')
-                .details
-                    .item-name= `${product.name}`
-                    .item-price ₹#{product.price}
-                button.button-more More
-
+                .grid
+                    article 
+                        img.image-resize(src=`${product.image}`, alt='')
+                        .text
+                            h3
+                                .item-name= `${product.name}`
+                            .item-price ₹#{product.price}
+                        button.button-more More    
+                            
 

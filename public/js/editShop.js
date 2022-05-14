@@ -13,7 +13,7 @@ form.addEventListener("submit", async e => {
         });
         if (res.data.status === "success") {
             alert("Successfully created!");
-            return location.assign(`/shops/${res.data.data.updatedShop._id}`);
+            return location.assign("/myshop");
         }
         alert("OOps something went wrong...");
     } catch (err) {

@@ -177,7 +177,8 @@ exports.getProductsOfAShop = catchAsync(async (req, res, next) => {
 
 exports.getCurrentSellerShop = catchAsync(async (req, res, next) => {
     const shop = await Shop.findOne({ seller: req.user._id });
-    if (!shop) return next(new AppError("No shop found"));
+    if (!shop) return res.status(200).redirect("shops/new");
+    // return next(new AppError("No shop found"));
     res.status(200).render("shops/myShop", { shop });
 });
 

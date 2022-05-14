@@ -1,17 +1,24 @@
 extends ../base
 
 block links
-    link(rel='stylesheet' href='/css/allShops.css')
+    link(rel='stylesheet' href='/css/allShops.css')             
 
-block content
+block content 
+    .cover
+        form.flex-form(action='/shops' method='GET')
+            input#longitude.form__input(type ='text' placeholder ='longitude' name='lng' required)
+            input#latitude.form__input(type ='text' placeholder ='latitude' name='lat' required)
+            input#radius.form__input(type ='text' placeholder ='radius' name='radius')
+            input(type='submit', value='Submit')     
     .container
         each shop in shops
             form.item(action=`/shops/${shop._id}/products` method='GET')
-                img(src=`${shop.image}`, alt='')
-                .details
-                    .item-name= `${shop.name}`
-                    .item-price ₹#{shop.location.addres}
-                button.button-more Visit Shop
-
-
+                main.grid
+                    article 
+                        img.image-resize(src=`${shop.image}`, alt='')
+                        .text
+                            h3
+                                .item-name= `${shop.name}`
+                            .item-address= `${shop.location.address}`
+                            button.button-more Visit Shop 
 

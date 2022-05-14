@@ -6,11 +6,21 @@ block links
 block content
     main
         form.container
-            input#name(type='text' placeholder='enter name of the shop' name='name' required)
-            input#image(type='text' name='image' placeholder='enter shop image URL' required)
-            input#address(type='text' name='address' placeholder='enter shop address' required)
-            input#address(type='number' name='longitude' placeholder='enter shop longitude' required)
-            input#address(type='number' name='latitude' placeholder='enter shop latitude' required)
-            input(type='submit', value='Submit')
-
+            div.form1  
+                input#name.form1__input(type ='text' placeholder ='name' name='name' required)
+                label.form1__label(for="name") Name : 
+            div.form1  
+                input#address.form1__input(type ='text' placeholder ='address' name='address' required)
+                label.form1__label(for="address") Address : 
+            div.form1  
+                input#longitude.form1__input(type ='text' placeholder ='longitude' name='longitude' required)
+                label.form1__label(for="longitude") Longitude : 
+            div.form1  
+                input#latitude.form1__input(type ='text' placeholder ='latitude' name='latitude' required)
+                label.form1__label(for="latitude") Latitude : 
+            div.form1  
+                input#image.form1__input(type ='text' placeholder='image' name='image' required)
+                label.form1__label(for="image") Shop Image : 
+          
+            input.button(type='submit', value='Submit')                    
     script(src='/js/addShop.js')

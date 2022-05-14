@@ -3,12 +3,15 @@ extends ../base
 block links
     link(rel='stylesheet' href='/css/myShop.css')
 
-block content
-    .container
-        img(src=`${shop.image}`, alt='')
-        .details
-            .item-name= `${shop.name}`
-            div= `Address = ${shop.location.address}`
-        a(href=`/shops/${shop._id}/edit`)= 'Edit'
-
-
+block content 
+    div.container 
+        .grid 
+            article
+                img(src=`${shop.image}`, alt='')
+                .text
+                    h3
+                        .item-name= `${shop.name}`
+                    div= `Address : ${shop.location.address}`
+                    a.button(href=`/shops/${shop._id}/edit`) Edit
+                    button.button-remove(data-id=`${shop._id}`) Remove
+    script(src='/js/myShop.js')

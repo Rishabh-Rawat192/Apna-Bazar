@@ -1,3 +1,85 @@
-body{
-    background-color: aqua;
+body {
+    background: #eee5e9;
+}
+
+.container {
+    background: #eee5e9;
+    margin: 80px;
+    display: grid;
+    justify-content: center;
+    grid-gap: 30px;
+    align-items: center;
+}
+
+.grid > article {
+    background: #eee5e9;
+    border: none;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+}
+.grid > article:hover {
+    transform: translateY(5px);
+    box-shadow: 2px 2px 26px 0px rgba(0, 0, 0, 0.3);
+}
+.grid > article img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.text {
+    padding: 0 20px 20px;
+}
+.text h3 {
+    text-transform: uppercase;
+}
+.button-remove {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+    margin-left: 35px;
+    border-radius: 0.25rem;
+}
+.button-remove:hover {
+    opacity: 0.8;
+}
+.button-remove {
+    border: none;
+    background: rgb(211, 11, 11);
+}
+
+a.button:link,
+a.button:visited {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+    margin-right: 35px;
+    border-radius: 0.25rem;
+    border: none;
+    background: rgb(211, 11, 11);
+}
+
+a.button:hover,
+a.button:active {
+    background-color: #ad221f;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 500px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .grid > article {
+        text-align: center;
+    }
 }
