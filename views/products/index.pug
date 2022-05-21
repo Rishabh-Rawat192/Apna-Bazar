@@ -5,6 +5,9 @@ block links
 
 
 block content
+    form#searchBarForm(action='/' method='GET')
+        input(type="text", name="wordInName")
+        input(type="submit", value="Search") 
     .container
         each product in products
             form.item(action=`/${product._id}` method='GET')

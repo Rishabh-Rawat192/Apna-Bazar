@@ -3,6 +3,7 @@ const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
 const Shop = require("../models/shopModel");
 const catchAsync = require("../utils/catchAsync");
+const injectURLQuery = require("../utils/injectURLQuery");
 const AppError = require("../utils/appError");
 const DeliveryDetail = require("../models/deliveryDetailModel");
 
@@ -10,8 +11,19 @@ exports.getHomePage = catchAsync(async (req, res, next) => {
     if (req.user && req.user.role === "seller")
         return res.redirect("/products");
 
-    const products = await Product.find();
-    res.status(200).render("products/index", { products });
+    let URL = `${req.protocol}://${req.headers.host}/api/v1/products`;
+    URL = injectURLQuery.injectURLQuery(URL, req.query);
+    const response = await axios({
+        method: "GET",
+        url: URL
+    });
+    if (response.data.status === "success")
+        return res.status(200).render("products/index", {
+            products: response.data.data.products
+        });
+    return next(
+        new AppError("Something went wrong. Please try again later", 500)
+    );
 });
 
 exports.getProductDetails = catchAsync(async (req, res, next) => {

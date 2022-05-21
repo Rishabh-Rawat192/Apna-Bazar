@@ -7,6 +7,15 @@ class APIFeatures {
     filter(moreFields) {
         //Copying query object
         const queryObj = { ...this.queryString };
+        if ("wordInName" in queryObj) {
+            //Making sure that only alphabets are present in regex
+            queryObj.name = {
+                $regex: `${queryObj.wordInName.replace(/[^a-zA-Z ]/g, "")}`,
+                $options: "i"
+            };
+            queryObj.wordInName = undefined;
+        }
+
         //Removing given fields from queryObj
         const excludeFields = ["page", "sort", "limit", "fields"].concat(
             moreFields

@@ -1,3 +1,8 @@
+#searchBarForm{
+    margin:1rem;
+    text-align: center;
+}
+
 .container {
     display: grid;
     padding: 1rem;
