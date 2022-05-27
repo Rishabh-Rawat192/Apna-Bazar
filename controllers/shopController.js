@@ -115,6 +115,12 @@ exports.updateShop = catchAsync(async (req, res, next) => {
         );
     }
 
+    //Adding location
+    const { location } = shop;
+    if (req.body.address) location.address = req.body.address;
+    if (req.body.longitude) location.coordinates[0] = req.body.longitude;
+    if (req.body.latitude) location.coordinates[1] = req.body.latitude;
+
     const updatedShop = await Shop.findOneAndUpdate(
         {
             _id: req.params.id,
@@ -123,7 +129,7 @@ exports.updateShop = catchAsync(async (req, res, next) => {
         {
             name: req.body.name,
             image: req.body.image,
-            location: req.body.location
+            location: location
         },
         {
             new: true,
